@@ -6,8 +6,6 @@
    # The path to your trusted ssl CA file. 
    # You shouldn't change this path. Unless you change the 
    # actual filename.
-   "ssl certificate": "/etc/ssl/logstash-me.crt",
-   "ssl key": "/etc/ssl/logstash-me.key",
    "ssl ca": "/etc/ssl/logstash-forwarder.crt",
 
    # Network timeout in seconds. This is most important for
