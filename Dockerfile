@@ -1,9 +1,6 @@
 FROM alpine
 
-ADD config.json /config.json
-
-RUN apk add --update bash \
-  && apk --update add git bzr \
+RUN apk --update add bash git bzr \
   && echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
   && apk --update add go \
   && export GOPATH=/gopath \
@@ -13,5 +10,8 @@ RUN apk add --update bash \
   && apk del go git bzr \
   && rm -rf $GOPATH /var/cache/apk/*
 
-CMD [ "/logstash-forwarder", "-config", "/config.json" ]
+ADD config.json /config.json
+ADD start.sh /start.sh
+
+CMD [ "/start.sh" ]
 
