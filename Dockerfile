@@ -10,8 +10,6 @@ RUN apk --update add bash git bzr \
   && apk del go git bzr \
   && rm -rf $GOPATH /var/cache/apk/*
 
-ADD config.json /config.json
-ADD start.sh /start.sh
 
-CMD [ "/start.sh" ]
+CMD [ "/logstash-forwarder", "-config", "/config/config.json" ]
 
