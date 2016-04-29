@@ -10,6 +10,6 @@ RUN apk --update add bash git bzr \
   && apk del go git bzr \
   && rm -rf $GOPATH /var/cache/apk/*
 
-
+RUN mkdir /config
 CMD [ "/logstash-forwarder", "-config", "/config/config.json" ]
 
